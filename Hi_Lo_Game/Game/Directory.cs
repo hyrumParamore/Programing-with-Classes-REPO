@@ -27,6 +27,7 @@ public class Director {
         }
 
         Console.WriteLine("Thanks for playing!");
+        Console.WriteLine("");
     }
 
 
