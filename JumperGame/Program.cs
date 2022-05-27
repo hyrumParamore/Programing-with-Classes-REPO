@@ -20,7 +20,7 @@ namespace JumperGame {
             RandomWord random = new RandomWord();
             string randomWord = random.CreateRandomWord();
 
-            Console.WriteLine("Welcome to hangman :)");
+            Console.WriteLine("Welcome to the Jumper Game! :)");
             Console.WriteLine("-------------------------------------");
 
 
@@ -73,7 +73,7 @@ namespace JumperGame {
                     }
                     else
                     {
-                        amountOfTimesWrong++;
+                        amountOfTimesWrong = amountOfTimesWrong + 1;
                         currentLettersGuessed.Add(letterGuessed);
                         director.PrintBoard(amountOfTimesWrong);
                         currentLettersRight = director.printWord(currentLettersGuessed, randomWord);
@@ -86,6 +86,8 @@ namespace JumperGame {
                 }
                 
             }
+            Console.WriteLine(currentLettersRight);
+            Console.WriteLine(amountOfTimesWrong);
             Console.WriteLine("\r\nGame is over! Thank you for playing! ");
 
         }
