@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "RlpiZXTaZPVUjZh7BpdhmcKcT/qGh3iHTouZ9/5SLoP3Chc/zHiTzOq7h/q4oTCti6k/ELlthw/casZzcpQi5A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hyrum\\OneDrive\\Desktop\\Programing with Classes REPO\\greed_game\\greed_game.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hyrum\\.nuget\\packages\\raylib-cs\\4.0.0.1\\raylib-cs.4.0.0.1.nupkg.sha512",
+    "C:\\Users\\hyrum\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
