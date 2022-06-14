@@ -64,21 +64,80 @@ namespace Unit04.Game.Directing
             Actor banner = cast.GetFirstActor("banner");
             Actor robot = cast.GetFirstActor("robot");
             List<Actor> artifacts = cast.GetActors("artifacts");
+            List<Actor> balls = cast.GetActors("balls");
 
-            banner.SetText("");
+            // score = ToString(score);
+
+            
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
 
+            // int r = 225;
+            // int g = 6;
+            // int b = 0;
+            // Color color = new Color(r,g,b);
+
             foreach (Actor actor in artifacts)
             {
+                
+
+                banner.SetIntText(score);
+                actor.MoveNext(maxX, maxY);
+                // ball.MoveNext(maxX, maxY);
                 if (robot.GetPosition().Equals(actor.GetPosition()))
-                {
+                {   
+                    
                     Artifact artifact = (Artifact) actor;
                     string message = artifact.GetMessage();
-                    banner.SetText(message);
+                    banner.SetText(message + score );
+                    score = score - 100;
+                    // r = 0;
+                    // g = 0;
+                    // b = 0;
+                    // Color color = new Color(r, g, b);
+                    // artifact.SetColor(color);
                 }
-            } 
+                // else if (robot.GetPosition().Equals(ball.GetPosition())) 
+                // {
+                //     // robot.GetPosition().Equals(cast.GetFirstActor());
+                    
+                //     score = score - 100;
+                // }
+                // }
+                } 
+                foreach (Actor ball in balls)
+                {
+                    banner.SetIntText(score);
+                    ball.MoveNext(maxX, maxY);
+                    // ball.MoveNext(maxX, maxY);
+                    if (robot.GetPosition().Equals(ball.GetPosition()))
+                    {
+                        
+                        Artifact artifact = (Artifact) ball;
+                        string message = artifact.GetMessage();
+                        banner.SetText(message + score );
+                        score = score + 100;
+                        int r = 0;
+                        int g = 0;
+                        int b = 0;
+                        Color color = new Color(r, g, b);
+                        artifact.SetColor(color);
+                        // if (r == 225 && g == 6 && b == 0)
+                        // {
+                        //     score = score + 100;
+                        
+                        //     r = 0;
+                        //     g = 0;
+                        //     b = 0;
+                            
+                        // }
+                        // else 
+                        // {
+                            
+                        // }
+                    }
+                }
         }
 
         /// <summary>

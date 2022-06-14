@@ -13,7 +13,7 @@ namespace Unit04.Game.Casting
         /// </summary>
     public class Artifact : Actor 
     {
-        private string message = "";
+        private string message = "Score: ";
 
         
 
