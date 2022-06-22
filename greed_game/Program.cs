@@ -14,7 +14,7 @@ namespace unit04_greed
     /// </summary>
     class Program
     {
-        private static int FRAME_RATE = 15;
+        private static int FRAME_RATE = 12;
         private static int MAX_X = 900;
         private static int MAX_Y = 600;
         private static int CELL_SIZE = 15;
@@ -77,7 +77,7 @@ namespace unit04_greed
                 artifact.SetFontSize(FONT_SIZE);
                 artifact.SetColor(color);
                 artifact.SetPosition(position);
-                artifact.SetScore(1);
+                artifact.SetScore(100);
                 cast.AddActor("artifacts", artifact);
             }
 
@@ -92,7 +92,7 @@ namespace unit04_greed
                 position = position.Scale(CELL_SIZE);
 
                 int r = 255;
-                int g = 1;
+                int g = 45;
                 int b = 1;
                 Color color = new Color(r, g, b);
 
@@ -101,7 +101,7 @@ namespace unit04_greed
                 artifact.SetFontSize(FONT_SIZE);
                 artifact.SetColor(color);
                 artifact.SetPosition(position);
-                artifact.SetScore(-1);
+                artifact.SetScore(-100);
                 cast.AddActor("artifacts", artifact);
             }
 
