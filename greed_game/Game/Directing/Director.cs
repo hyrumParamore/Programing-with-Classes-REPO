@@ -1,9 +1,16 @@
 using System.Collections.Generic;
-using Unit04.Game.Casting;
-using Unit04.Game.Services;
+using unit04_greed.Game.Casting;
+using unit04_greed.Game.Services;
+using System;
+
+using System.IO;
+using System.Linq;
+
+using unit04_greed.Game.Directing;
 
 
-namespace Unit04.Game.Directing
+
+namespace unit04_greed.Game.Directing
 {
     /// <summary>
     /// <para>A person who directs the game.</para>
@@ -13,10 +20,10 @@ namespace Unit04.Game.Directing
     /// </summary>
     public class Director
     {
+        public int score = 0;
         private KeyboardService keyboardService = null;
         private VideoService videoService = null;
 
-        public int score = 0;
         /// <summary>
         /// Constructs a new instance of Director using the given KeyboardService and VideoService.
         /// </summary>
@@ -33,7 +40,7 @@ namespace Unit04.Game.Directing
         /// </summary>
         /// <param name="cast">The given cast.</param>
         public void StartGame(Cast cast)
-        {
+        { 
             videoService.OpenWindow();
             while (videoService.IsWindowOpen())
             {
@@ -50,9 +57,17 @@ namespace Unit04.Game.Directing
         /// <param name="cast">The given cast.</param>
         private void GetInputs(Cast cast)
         {
+            List<Actor> artifacts = cast.GetActors("artifacts");
+            foreach (Actor actor in artifacts){
+                Point artifactvelocity = keyboardService.MoveArtifact();
+                actor.SetVelocity(artifactvelocity);
+                int maxX = videoService.GetWidth();
+                int maxY = videoService.GetHeight();
+                actor.MoveNext(maxX, maxY);
+            }
             Actor robot = cast.GetFirstActor("robot");
             Point velocity = keyboardService.GetDirection();
-            robot.SetVelocity(velocity);     
+            robot.SetVelocity(velocity); 
         }
 
         /// <summary>
@@ -61,83 +76,34 @@ namespace Unit04.Game.Directing
         /// <param name="cast">The given cast.</param>
         private void DoUpdates(Cast cast)
         {
+
             Actor banner = cast.GetFirstActor("banner");
             Actor robot = cast.GetFirstActor("robot");
             List<Actor> artifacts = cast.GetActors("artifacts");
-            List<Actor> balls = cast.GetActors("balls");
 
-            // score = ToString(score);
-
-            
+            banner.SetText($"Score: {score.ToString()}");
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
 
-            // int r = 225;
-            // int g = 6;
-            // int b = 0;
-            // Color color = new Color(r,g,b);
-
+            Random random = new Random();
             foreach (Actor actor in artifacts)
             {
                 
-
-                banner.SetIntText(score);
-                actor.MoveNext(maxX, maxY);
-                // ball.MoveNext(maxX, maxY);
                 if (robot.GetPosition().Equals(actor.GetPosition()))
-                {   
-                    
-                    Artifact artifact = (Artifact) actor;
-                    string message = artifact.GetMessage();
-                    banner.SetText(message + score );
-                    score = score - 100;
-                    // r = 0;
-                    // g = 0;
-                    // b = 0;
-                    // Color color = new Color(r, g, b);
-                    // artifact.SetColor(color);
-                }
-                // else if (robot.GetPosition().Equals(ball.GetPosition())) 
-                // {
-                //     // robot.GetPosition().Equals(cast.GetFirstActor());
-                    
-                //     score = score - 100;
-                // }
-                // }
-                } 
-                foreach (Actor ball in balls)
                 {
-                    banner.SetIntText(score);
-                    ball.MoveNext(maxX, maxY);
-                    // ball.MoveNext(maxX, maxY);
-                    if (robot.GetPosition().Equals(ball.GetPosition()))
-                    {
-                        
-                        Artifact artifact = (Artifact) ball;
-                        string message = artifact.GetMessage();
-                        banner.SetText(message + score );
-                        score = score + 100;
-                        int r = 0;
-                        int g = 0;
-                        int b = 0;
-                        Color color = new Color(r, g, b);
-                        artifact.SetColor(color);
-                        // if (r == 225 && g == 6 && b == 0)
-                        // {
-                        //     score = score + 100;
-                        
-                        //     r = 0;
-                        //     g = 0;
-                        //     b = 0;
-                            
-                        // }
-                        // else 
-                        // {
-                            
-                        // }
-                    }
+                    Artifact artifact = (Artifact) actor;
+                    score += artifact.GetScore();
+                    banner.SetText($"Score: {score.ToString()}");
+
+                    int x = random.Next(1, 60);
+                    int y = 0;
+                    Point position = new Point(x, y);
+                    position = position.Scale(15);
+
+                    artifact.SetPosition(position);
                 }
+            } 
         }
 
         /// <summary>

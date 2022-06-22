@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Unit04.Game.Casting;
-using Unit04.Game.Directing;
-using Unit04.Game.Services;
+using unit04_greed.Game.Casting;
+using unit04_greed.Game.Directing;
+using unit04_greed.Game.Services;
 
 
-namespace Unit04
+namespace unit04_greed
 {
     /// <summary>
     /// The program's entry point.
@@ -24,9 +24,7 @@ namespace Unit04
         private static string CAPTION = "Greed";
         private static string DATA_PATH = "Data/messages.txt";
         private static Color WHITE = new Color(255, 255, 255);
-        private static int DEFAULT_BOXES = 40;
-        private static int DEFAULT_BALLS = 25;
-        // private static int BALL_MOVEMENT = 0;
+        private static int DEFAULT = 20;
 
 
         /// <summary>
@@ -51,52 +49,27 @@ namespace Unit04
             robot.SetText("#");
             robot.SetFontSize(FONT_SIZE);
             robot.SetColor(WHITE);
-            robot.SetPosition(new Point(MAX_X / 2, MAX_Y / 2));
+            robot.SetPosition(new Point(MAX_X/2, MAX_Y - 30));
             cast.AddActor("robot", robot);
 
-            // // create movement
-            // Artifact ball = new Artifact();
-            // ball.SetText("#");
-            // ball.SetFontSize(FONT_SIZE);
-            // ball.SetColor(WHITE);
-            // ball.SetPosition(new Point(MAX_X / 2, MAX_Y / 2));
-            // cast.AddActor("ball", ball);
-
-
             // load the messages
-            List<string> messages = File.ReadAllLines(DATA_PATH).ToList<string>();
+            //List<string> messages = File.ReadAllLines(DATA_PATH).ToList<string>();
 
             // create the artifacts
             Random random = new Random();
-            for (int i = 0; i < DEFAULT_BOXES; i++)
+            for (int i = 0; i < DEFAULT; i++)
             {
-                // string text = ((char)random.Next(33, 126)).ToString();
-                // int unicode = 48;
-                // char character = (char) unicode;
-                // string text = character.ToString();
-
-                string text = "0";
-
-                int dx = 0;
-                int dy = 10;
-                Point direction = new Point(dx, dy);
-                
-                
-                string message = messages[i];
+                string text = ((char)(42)).ToString();
+                //string message = messages[i];
 
                 int x = random.Next(1, COLS);
                 int y = random.Next(1, ROWS);
                 Point position = new Point(x, y);
                 position = position.Scale(CELL_SIZE);
-                Actor move = new Actor();
-                move.MoveNext(x, y);
 
-
-
-            
-                int r = random.Next(0, 256);
-                int g = random.Next(0, 256);
-                int b = random.Next(0, 256);
+                int r = 1;
+                int g = 255;
+                int b = 1;
                 Color color = new Color(r, g, b);
 
                 Artifact artifact = new Artifact();
@@ -104,37 +77,23 @@ namespace Unit04
                 artifact.SetFontSize(FONT_SIZE);
                 artifact.SetColor(color);
                 artifact.SetPosition(position);
-                // artifact.SetMessage(message);
+                artifact.SetScore(1);
                 cast.AddActor("artifacts", artifact);
             }
 
-
-            // Create Balls
-            for (int i = 0; i < DEFAULT_BALLS; i++)
+            for (int i = 0; i < DEFAULT; i++)
             {
-
-                string text = "x";
-
-                int dx = 0;
-                int dy = 10;
-                Point direction = new Point(dx, dy);
-                
-                
-                string message = messages[i];
+                string text = ((char)(111)).ToString();
+                //string message = messages[i];
 
                 int x = random.Next(1, COLS);
                 int y = random.Next(1, ROWS);
                 Point position = new Point(x, y);
                 position = position.Scale(CELL_SIZE);
-                Actor move = new Actor();
-                move.MoveNext(x, y);
-                
 
-
-            
-                int r = 225;
-                int g = 6;
-                int b = 0;
+                int r = 255;
+                int g = 1;
+                int b = 1;
                 Color color = new Color(r, g, b);
 
                 Artifact artifact = new Artifact();
@@ -142,46 +101,9 @@ namespace Unit04
                 artifact.SetFontSize(FONT_SIZE);
                 artifact.SetColor(color);
                 artifact.SetPosition(position);
-                // artifact.SetMessage(message);
-                cast.AddActor("balls", artifact);
+                artifact.SetScore(-1);
+                cast.AddActor("artifacts", artifact);
             }
-
-            // // Create the Balls
-            
-            // for (int i = 0; i < DEFAULT_BALLS; i++)
-            // {
-            //     // string text = ((char)random.Next(33, 126)).ToString();
-
-            //     string text = ("*").ToString();
-
-            //     // int unicode = 48;
-            //     // char character = (char) unicode;
-            //     // string text = character.ToString();
-                
-            //     string message = messages[i];
-
-            //     int dx = 0;
-            //     int dy = 5;
-            //     Point direction = new Point(dx, dy);
-
-            //     int x = random.Next(1, COLS);
-            //     int y = 0;
-            //     Point position = new Point(10, y);
-            //     position = position.Scale(CELL_SIZE);
-
-            //     int r = random.Next(0, 256);
-            //     int g = random.Next(0, 256);
-            //     int b = random.Next(0, 256);
-            //     Color color = new Color(r, g, b);
-
-            //     Artifact artifact = new Artifact();
-            //     artifact.SetText(text);
-            //     artifact.SetFontSize(FONT_SIZE);
-            //     artifact.SetColor(color);
-            //     artifact.SetPosition(position);
-            //     // artifact.SetMessage(message);
-            //     cast.AddActor("artifacts", artifact);
-            // }
 
             // start the game
             KeyboardService keyboardService = new KeyboardService(CELL_SIZE);

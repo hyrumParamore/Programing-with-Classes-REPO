@@ -1,7 +1,7 @@
 using System;
 
 
-namespace Unit04.Game.Casting
+namespace unit04_greed.Game.Casting
 {
     /// <summary>
     /// <para>A thing that participates in the game.</para>
@@ -13,11 +13,10 @@ namespace Unit04.Game.Casting
     public class Actor
     {
         private string text = "";
-        private int scoreText = 0;
         private int fontSize = 15;
         private Color color = new Color(255, 255, 255); // white
         private Point position = new Point(0, 0);
-        private Point velocity = new Point(0, 10);
+        private Point velocity = new Point(0, 0);
 
         /// <summary>
         /// Constructs a new instance of Actor.
@@ -142,12 +141,6 @@ namespace Unit04.Game.Casting
             }
             this.text = text;
         }
-        public int SetIntText(int scoreText)
-        {
-            // int.Parse(text);
-            return scoreText;
-        }
-        
 
         /// <summary>
         /// Sets the actor's velocity to the given value.
