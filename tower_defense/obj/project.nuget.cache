@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "oxQHuIerS1tx9i6eUsjk4xbJSK+gNrkiyCOQbDhEOxMGgvPFAq9qOqc4TV4psfG2WkaNG7O4FIOgSHPQGjmlNA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hyrum\\OneDrive\\Desktop\\Programing with Classes REPO\\tower_defense\\tower_defense.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hyrum\\.nuget\\packages\\raylib-cs\\4.0.0.1\\raylib-cs.4.0.0.1.nupkg.sha512",
+    "C:\\Users\\hyrum\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
