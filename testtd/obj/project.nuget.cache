@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "4Nr34Hdddy/ziV1+N+c6sQfqgnSlAzRYk2D4ZRPkfcdvZ+GajO9FI1mttQK1J8M0UAhzbUHRSNgMxCyVFom+vw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hyrum\\OneDrive\\Desktop\\Programing with Classes REPO\\testtd\\testtd.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hyrum\\.nuget\\packages\\raylib-cs\\4.0.0.1\\raylib-cs.4.0.0.1.nupkg.sha512",
+    "C:\\Users\\hyrum\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

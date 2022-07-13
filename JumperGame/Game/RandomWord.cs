@@ -1,7 +1,7 @@
 
 public class RandomWord {
 
-    public string randomWord;
+    private string randomWord;
 
     public RandomWord() {
         randomWord = "";
@@ -17,7 +17,7 @@ public class RandomWord {
         int index = random.Next(wordList.Count);
         string randomWord = wordList[index];
 
-        return randomWord;
+        return this.randomWord;
     }
 
 }
