@@ -115,6 +115,9 @@ public class Director
         display.ClearBackground();
 
         Actor turret = cast.GetFirstActor("turret");
+
+        // There is a bug here that crashes the sreen when the enemy actors are removed in later code
+        // Fix it by instead looping through all the enemy actors rather than just one actor.
         Actor enemy = cast.GetFirstActor("enemy");
         Actor enemy2 = cast.GetFirstActor("enemy2");
 

@@ -124,11 +124,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hyrum\\OneDrive\\Desktop\\td_understart\\td_understart.csproj",
+      "projectUniqueName": "C:\\Users\\hyrum\\OneDrive\\Desktop\\Programing with Classes REPO\\td_understart\\td_understart.csproj",
       "projectName": "td_understart",
-      "projectPath": "C:\\Users\\hyrum\\OneDrive\\Desktop\\td_understart\\td_understart.csproj",
+      "projectPath": "C:\\Users\\hyrum\\OneDrive\\Desktop\\Programing with Classes REPO\\td_understart\\td_understart.csproj",
       "packagesPath": "C:\\Users\\hyrum\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hyrum\\OneDrive\\Desktop\\td_understart\\obj\\",
+      "outputPath": "C:\\Users\\hyrum\\OneDrive\\Desktop\\Programing with Classes REPO\\td_understart\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hyrum\\AppData\\Roaming\\NuGet\\NuGet.Config"
