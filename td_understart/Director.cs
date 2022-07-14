@@ -168,6 +168,7 @@ public class Director
         // Point xy4 = new Point(x4, y4);
 
 
+        // Second Enemy (Stationary)
         // Display if the enemy got hit.
         if (enemyX2 <= x1 && enemyY2 <= y1 && enemyX2 <= x2 && enemyY2 >= y2 && enemyX2 >= x3 && enemyY2 <= y3 && enemyX2 >= x4 && enemyY2 >= y4)
         {
@@ -182,6 +183,24 @@ public class Director
             if (health == 0)
             {
                 cast.RemoveActor("enemy2", enemy2);
+            }
+
+        }
+
+        // First Enemy (Moving)
+        if (enemyX <= x1 && enemyY <= y1 && enemyX <= x2 && enemyY >= y2 && enemyX >= x3 && enemyY <= y3 && enemyX >= x4 && enemyY >= y4)
+        {
+            // display.DrawText("This is working", 25, 50);
+            enemy.TakeDamage();
+            
+            int health = enemy.Health();
+            string healthString = enemy.Health().ToString();
+            // health = health.ToString();
+            display.DrawText("Enemy Health: " + healthString, 60, 20);
+
+            if (health == 0)
+            {
+                cast.RemoveActor("enemy", enemy);
             }
 
         }

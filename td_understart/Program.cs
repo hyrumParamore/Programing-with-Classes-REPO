@@ -16,9 +16,6 @@ public class Program
 
         
 
-        
-        
-
         Cast cast = new Cast();
         
         Actor turret = new Turret();
